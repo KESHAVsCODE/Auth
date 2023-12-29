@@ -1,17 +1,23 @@
 const express = require("express");
 const userRoute = require("./src/routes/userRoute");
+require("./src/db/connectDB");
+
 const app = express();
 
 app.set("view engine", "ejs");
+
 app.set("views", "./src/views");
+
+app.use(express.json());
+
+app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static("./src/views"));
 
 app.use("/user", userRoute);
 
-app.get("/", (req, res) => {
-  // res.send("This is My APP Home page");
-  res.render("./home/home.ejs");
+app.get("/home", (req, res) => {
+  res.render("home/home.ejs");
 });
 
 app.all("*", (req, res) => {
