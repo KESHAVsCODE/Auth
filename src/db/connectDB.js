@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 
 const password = encodeURIComponent("mongo9058");
-const url = `mongodb+srv://keshavdb:${password}@keshav.f1rfheg.mongodb.net/?retryWrites=true&w=majority`;
+const databaseName = "KeshavDB";
+const url = `mongodb+srv://keshavdb:${password}@keshav.f1rfheg.mongodb.net/${databaseName}?retryWrites=true&w=majority`;
 
 const optionalParams = {
   //   useNewUrlParser: true,
@@ -16,3 +17,4 @@ mongoose
   .catch((err) => {
     console.log(`Error occur while connecting Database:${err.message}`);
   });
+``;
