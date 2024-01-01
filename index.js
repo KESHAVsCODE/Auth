@@ -1,9 +1,10 @@
 const express = require("express");
 const userRoute = require("./src/routes/userRoute");
 require("./src/db/connectDB");
-
+const cookie = require("cookie-parser");
 const app = express();
 
+app.use(cookie());
 app.set("view engine", "ejs");
 
 app.set("views", "./src/views");
